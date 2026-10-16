@@ -57,6 +57,7 @@
       // useState gives us a value (isDark) and a function to update it (setIsDark)
       const [isDark, setIsDark] = useState(false);
       const [isConnected, setIsConnected] = useState(false);
+      const [likes, setLikes] = useState(0);
 
       // Toggle theme function
       const toggleTheme = () => setIsDark(!isDark);
@@ -131,6 +132,17 @@
               }`}
             >
               {isConnected ? '✓ Connected' : 'Connect'}
+            </button>
+            {/* Like Button */}
+            <button
+              onClick={() => setLikes(likes + 1)}
+              className={`w-full py-3 rounded-xl font-semibold mb-6 transition-all ${
+               isDark
+                 ? 'bg-pink-500 text-white hover:bg-pink-600'
+                 : 'bg-pink-100 text-pink-800 hover:bg-pink-200'
+              }`}
+            >
+              ♥ Like {likes}
             </button>
 
             {/* Social Links */}
